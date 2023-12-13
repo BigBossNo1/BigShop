@@ -1,0 +1,64 @@
+﻿<section class="panel">
+    <header class="panel-heading">
+        <strong><font color="orange"> Trang Thêm Mới Danh Mục Sản Phẩm</font></strong>
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form role="form" novalidate name="frmAddProductCategory" ng-submit="AddproductCategory()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tên Danh Mục</label>
+                    <input type="text" class="form-control" required name="Name" ng-change="GetSeoTitle()" ng-model="producCategory.Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Tiêu Đề Seo</label>
+                    <input type="text" class="form-control" name="Alias" ng-model="producCategory.Alias">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Mô Tả Ngắn</label>
+                    <input type="text" class="form-control" name="Description" ng-model="producCategory.Description">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Danh Mục Cha</label>
+                    <!--<input type="text" class="form-control" name="parentId" ng-model="producCategory.ParentID">-->
+                    <div class="col-sm-10">
+                        <!-- // truy van trong angularjs-->
+                        <select name="ParentID" ng-model="producCategory.ParentID" ng-options="option.ID as option.Name for option in parentCategory">
+                            <option value="">Danh Mục Gốc</option>
+                        </select>
+                        <input type="hidden" name="ParentID" ng-model="producCategory.ParentID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Thêm Hình Ảnh</label>
+                    <input type="text" class="form-control" name="Image" ng-model="producCategory.Image">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Thứ Tự</label>
+                    <input type="number" class="form-control" name="DisplayOrder" ng-model="producCategory.DisplayOrder">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Meta Keyword</label>
+                    <input type="text" class="form-control" name="MetaKeyWord" ng-model="producCategory.MetaKeyWord">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Meta Discription</label>
+                    <textarea class="form-control" name="MetaDesciption" ng-model="producCategory.MetaDesciption"></textarea>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="Status" ng-model="producCategory.Status" ng-checked="producCategory.Status" /> Kích Hoạt
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="HomeFlag" ng-model="producCategory.HomeFlag" ng-checked="producCategory.HomeFlag" /> Hiển Thị Trang Chủ
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info">Thêm Mới</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-default" ui-sref="product_category">Hủy Bỏ</button>
+        </div>
+    </div>
+</section>

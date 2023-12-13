@@ -1,0 +1,37 @@
+﻿<h1><strong><font color="green">TRANG SẢN PHẨM</font></strong></h1>
+<h1></h1>
+<div class="col-md-6">
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="keyWord" placeholder="Nhập Từ Khóa">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="search()">Tìm Kiếm</button>
+        </span>
+    </div>
+</div>
+<div class="col-md-6">
+    <button class="btn btn-success" ui-sref="product_add">Thêm Mới Sản Phẩm</button>
+</div>
+<div class="stats-last-agile">
+    <table class="table stats-table ">
+        <thead>
+            <tr>
+                <th><font color="orange">Tên Sản Phẩm</font></th>
+                <th><font color="orange">Giá Bán</font></th>
+                <th><font color="orange">Trạng Thái</font></th>
+                <th><font color="orange">Thao Tác</font></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--// lặp ra dữ liệu-->
+            <tr ng-repeat="item in allProduct">
+                <th scope="row">{{item.Name}}</th>
+                <td>{{item.Price}} $</td>
+                <td><span ng-class="{'label label-success' : item.Status == true ,'label label-danger' : item.Status == false }">{{item.Status | statusFilter}}</span></td>
+                <td>
+                    <button class="btn btn-primary" ui-sref="product_edit({id:item.ID})"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger" ng-click="deleteProduct(item.ID)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

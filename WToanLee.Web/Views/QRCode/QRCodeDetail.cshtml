@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "QRCodeDetail";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+    var code = (string)ViewBag.data;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang HTML Cơ Bản</title>
+</head>
+<body>
+
+    <img src="@Url.Action("GenerateQRCode", "QRCode", new { data = code })" alt="QR Code" />
+
+
+    <section>
+        <h2>Hình ảnh mèo dễ thương</h2>
+        <img src="https://placekitten.com/400/300" alt="Mèo Dễ Thương">
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Trang HTML Cơ Bản. Bản quyền thuộc về bạn!</p>
+    </footer>
+
+</body>
+</html>

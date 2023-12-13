@@ -1,0 +1,39 @@
+﻿<h1><strong><font color="green">DANH MỤC BÀI ĐĂNG</font></strong></h1>
+<h1></h1>
+<div class="col-md-6">
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="keyWord" placeholder="Nhập Từ Khóa">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="search()">Tìn Kiếm Bài Đăng</button>
+        </span>
+    </div>
+</div>
+<div class="col-md-6">
+    <button class="btn btn-success" ui-sref="post_add">Thêm Mới Bài Đăng</button>
+</div>
+<div class="stats-last-agile">
+    <table class="table stats-table ">
+        <thead>
+            <tr>
+                <th><font color="orange">Tên Bài Đăng</font></th>
+                <th><font color="orange">Nội Dung</font></th>
+                <th><font color="orange">Ngày Tạo</font></th>
+                <th><font color="orange">Trang Thái</font></th>
+                <th><font color="orange">Thao Tác</font></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--// lặp ra dữ liệu-->
+            <tr ng-repeat="item in allPost">
+                <th scope="row">{{item.Name}}</th>
+                <td>{{item.Content}}</td>
+                <td>{{item.CreateDate | date:'dd/MM/yyyy'}}</td>
+                <td><span ng-class="{'label label-success' : item.Status == true ,'label label-danger' : item.Status == false }">{{item.Status | statusFilter}}</span></td>
+                <td>
+                    <button class="btn btn-primary" ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger" ng-click="deleteProductCategory(item.ID)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

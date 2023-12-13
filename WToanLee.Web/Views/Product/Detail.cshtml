@@ -1,0 +1,120 @@
+﻿@model WToanLee.Web.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+@section FooterJS{
+    <script type="text/javascript" src="~/Assets/client/js/jquery.flexisel.js"></script>
+}
+<div class=" single_top">
+    <div class="single_grid">
+        <div class="grid images_3_of_2">
+            <ul id="etalage">
+                <li>
+                    <a href="optionallink.html">
+                        <img class="etalage_thumb_image img-responsive" src="@Model.Image" />
+                    </a>
+                </li>
+                @{
+                    var listMoreImage = (List<string>)ViewBag.MoreImage;
+                    if (listMoreImage != null)
+                    {
+                        foreach (var image in listMoreImage)
+                        {
+                            <li>
+                                <img class="etalage_thumb_image img-responsive" src="@image" />
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="desc1 span_3_of_2">
+
+            <h4>@Model.Name</h4>
+            <div class="cart-b">
+                <div class="left-n ">@(Model.Price == 0 ? "Tìm hiểu sản phẩm " : Model.Price.ToString("N0"))</div>
+                <a class="now-get get-cart-in" href="/them-go-hang/@Model.ID">Thêm Giỏ Hàng</a>
+                <div class="clearfix"></div>
+            </div>
+            <h6>Còn @Model.Quantity trong kho hàng</h6>
+            <p>@Model.Description</p>
+            <div class="share">
+                <h5><font color="red">TAG :</font></h5>
+                <ul class="">
+                    @foreach (var tag in (IEnumerable<WToanLee.Web.Models.TagViewModel>)ViewBag.Tag)
+                    {
+                        <li><a href="/tag/@(tag.ID)/html"><strong><font color="orange">@tag.Name</font></strong></a></li>
+                    }
+                </ul>
+                <h5><font color="red">Chia sẻ :</font></h5>
+                <ul class="share_nav">
+                    <li><a href="#"><img src="~/Assets/client/images/facebook.png" title="facebook"></a></li>
+                    <li><a href="#"><img src="~/Assets/client/images/twitter.png" title="Twiiter"></a></li>
+                    <li><a href="#"><img src="~/Assets/client/images/rss.png" title="Rss"></a></li>
+                    <li><a href="#"><img src="~/Assets/client/images/gpluse.png" title="Google+"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    @{
+        var relateProduct = (IEnumerable<WToanLee.Web.Models.ProductViewModel>)ViewBag.RelateProduc;
+    }
+    <ul id="flexiselDemo1">
+        @if (relateProduct != null)
+        {
+            foreach (var product in relateProduct)
+            {
+                <li><img src="@product.Image" /><div class="grid-flex"><a href="/ @(product.Alias) -p-@( product.ID)">Bloch</a><p>@product.Price</p></div></li>
+            }
+        }
+    </ul>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 5,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <div class="toogle">
+        <h3 class="m_3"><font color="red">Chi Tiết Sản Phẩm</font></h3>
+        <p class="m_text">@Html.Raw(Model.Content)</p>
+
+        <h2>Tao QR cho trang</h2>
+        <h3>Bấm vào đây</h3>
+        <img src="@Url.Action("GenerateQRCode", "QRCode", new { data = $"https://www.facebook.com/profile.php?id=100012600577147" })" alt="QR Code" />
+
+        <form action="@Url.Action("QRCodeDetail", "QRCode")" method="get">
+            <!-- Thêm một input hidden để truyền tham số -->
+            <input type="hidden" name="link" value="facebook.com" />
+            <!-- Thêm một nút bấm với type="submit" -->
+            <button type="submit">Bấm Vào để lấy QR</button>
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WToanLee.Web.Models.ProductCategoryViewModel>
+<div class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="latter">
+                <h6><font color="red">NHẬN THÔNG TIN</font></h6>
+                <div class="sub-left-right">
+                    <form>
+                        <input type="text" value="Nhập Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+                        <input type="submit" value="Gửi Đi" />
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="latter-right">
+                <p>Theo Dõi</p>
+                <ul class="face-in-to">
+                    <li><a href="#"><span> </span></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100014497275622"><span class="facebook-in"> </span></a></li>
+                    <div class="clearfix"> </div>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-cate">
+                <h6><font color="orange">DANH MỤC</font></h6>
+                <ul>
+                    @if (Model != null)
+                    {
+                        foreach (var produccategory in Model)
+                        {
+                            <li><a href="#">@produccategory.Name</a></li>
+                        }
+                    }
+
+                </ul>
+            </div>
+            <div class="footer-bottom-cate bottom-grid-cat">
+                <h6><font color="orange">DỰ ÁN TIÊU BIỂU</font></h6>
+                <ul>
+                    <li><a href="#">Cửa hàng đồ chơi</a></li>
+                    <li><a href="#">Thiết kế trang sức</a></li>
+                    <li><a href="#">Máy in 3D</a></li>
+                    <li><a href="#">Làm đẹp thú cưng</a></li>
+                    <li><a href="#">Đồ chơi lắp ghép</a></li>
+                    <li><a href="#">Vòng tay trang sức</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom-cate">
+                <h6><font color="orange">TOP NHÃN HÀNG</font></h6>
+                <ul>
+                    <li><a href="#">TPT Store</a></li>
+                    <li><a href="#">ToanLee Store</a></li>
+                    <li><a href="#">Tales Store</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom-cate cate-bottom">
+                <h6><font color="orange">ĐỊA CHỈ</font></h6>
+                <ul>
+                    <li>Nam Từ Liêm </li>
+                    <li>Hà Nội</li>
+                    <li class="phone">PH : 0355725203</li>
+                    <li class="temp"> <p class="footer-class">Thiết kế bởi<a href="https://www.facebook.com/profile.php?id=100014497275622" target="_blank"> ToanLee</a> </p></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

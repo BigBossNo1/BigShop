@@ -1,0 +1,5 @@
+E:\All Code Web\ASP.NET MVC (CODE)\WToanLee.Web\Web.Common\bin\Debug\Web.Common.dll
+E:\All Code Web\ASP.NET MVC (CODE)\WToanLee.Web\Web.Common\bin\Debug\Web.Common.pdb
+E:\All Code Web\ASP.NET MVC (CODE)\WToanLee.Web\Web.Common\obj\Debug\Web.Common.csproj.CoreCompileInputs.cache
+E:\All Code Web\ASP.NET MVC (CODE)\WToanLee.Web\Web.Common\obj\Debug\Web.Common.dll
+E:\All Code Web\ASP.NET MVC (CODE)\WToanLee.Web\Web.Common\obj\Debug\Web.Common.pdb

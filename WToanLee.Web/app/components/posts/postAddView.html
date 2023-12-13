@@ -1,0 +1,40 @@
+﻿<section class="panel">
+    <header class="panel-heading">
+        <strong><font color="orange"> Trang Thêm Mới Bài Đăng</font></strong>
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form role="form" novalidate name="frmAddProductCategory" ng-submit="addPost()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tên Bài Đăng</label>
+                    <input type="text" class="form-control" required name="Name" ng-model="post.Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tên SEO</label>
+                    <input type="text" class="form-control" required name="Name" ng-model="post.Alias">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Danh mục cha</label>
+                    <input type="number" class="form-control" required name="Name" ng-model="post.categoryID">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Nội Dung</label>
+                    <input type="text" class="form-control" name="Alias" ng-model="post.Content">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Trạng Thái</label>
+                    <input type="text" class="form-control" name="Description" ng-model="post.Status">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="HomeFlag" ng-model="post.HomeFlag" ng-checked="post.HomeFlag" /> Hiển Thị Trang Chủ
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info">Thêm Mới</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-default" ui-sref="post">Hủy Bỏ</button>
+        </div>
+    </div>
+</section>

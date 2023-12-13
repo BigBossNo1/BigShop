@@ -1,0 +1,73 @@
+﻿<section class="panel">
+    <header class="panel-heading">
+        <strong><font color="orange"> Trang Thêm Mới Sản Phẩm</font></strong>
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form role="form" novalidate name="frmAddProduct" ng-submit="AddProduct()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1"><font color="green">TÊN SẢN PHẨM</font></label>
+                    <input type="text" class="form-control" ng-change="GetSeoTitle()" required name="Name" ng-model="product.Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><font color="green">TIÊU ĐỀ SEO</font></label>
+                    <input type="text" class="form-control" name="Alias" ng-model="product.Alias">
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <!-- // truy van trong angularjs-->
+                        <select name="parentId" class="form-control" ng-model="product.CategoryID" ng-options="option.ID as option.Name for option in parent">
+                            <option value="">DANH MỤC GỐC</option>
+                        </select>
+                        <input type="hidden" name="parentId" ng-model="product.ParentID" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><font color="green"> HÌNH ẢNH</font></label>
+                    <input type="text" class="form-control" name="Image" ng-model="product.Image">
+                    <button class="btn btn-default" type="button" ng-click="ChoseImage()">Chọn Ảnh</button>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"><font color="red">Thêm ảnh</font></label>
+                    <div class="col-sm-10">
+                        <ul class="list-inline">
+                            <li ng-repeat="img in moreImages"><img ng-src="{{img}}" width="100" /></li>
+                        </ul>
+                        <button class="btn btn-default" type="button" ng-click="ChooseMoreImage()">Chọn ảnh</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><font color="green">MÔ TẢ SẢN PHẨM</font></label>
+                    <textarea type="text" class="form-control" name="Content" ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><font color="green">TAGS</font></label>
+                    <textarea type="text" class="form-control" name="Tags" ng-model="product.Tags"></textarea>
+                </div>
+                <div class="form-group"> 
+                    <label for="exampleInputPassword1"><font color="green">SẢN PHẨM TRONG KHO</font></label>
+                    <textarea type="text" class="form-control" name="Quantity" ng-model="product.Quantity"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1"><font color="green">GIÁ BÁN</font></label>
+                    <input type="number" class="form-control" name="price" ng-model="product.Price">
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="Status" ng-model="product.Status" ng-checked="product.Status" /> Kích Hoạt
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="HomeFlag" ng-model="product.HomeFlag" ng-checked="product.HomeFlag" /> Hiển Thị Trang Chủ
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info">Thêm Mới</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-default" ui-sref="product">Hủy Bỏ</button>
+        </div>
+    </div>
+</section>
